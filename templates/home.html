@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+
+<style type="text/css">
+.select{
+	width: 90%;
+	border-radius: 3px;
+	border-color: black;
+	border-color: transparent;
+	height: 35px;
+	border:none;
+}
+
+#sel option {
+	font-size: 15px;
+	text-transform: capitalize;
+	border-color: transparent;
+	border:none;
+	text-decoration-color: #245;
+}
+
+#s_age{
+	width: 90%;
+	border-radius: 3px;
+	border-color: transparent;
+	border: none;
+	outline: none;
+	text-transform: capitalize;
+	position: relative;
+	font-size:15px;
+	height: 30px;
+}
+
+
+}
+</style>
+
+
+<section class="hero is-primary is-bold is-large">
+ <div id="signup-box">
+ 			<br><br>
+ 			<center>
+ 			<form style="background-color: #39CCCC; border-radius: 20px;width: 35%;"  action="{{url_for('prediction')}}" method="POST">
+            <div class="signup-area">
+              <h1 class="title">Student information</h1>
+              <div class="field">
+                <div class = "container-fluid">
+                	<label id="signup-user">Select the Gender</label>
+                	<br>
+                  <select class="select" id="sel" name="gender">
+					  <option id="sel" value="0">Male</option>
+					  <option id="sel" value="1">Female</option>
+					</select>    	
+                </div>
+              </div>
+                 <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <center><label>Student age</label></center>
+                  <br>
+                  <input id="s_age" class="input is-success" type="date" required placeholder="" name="age">
+                </p>
+              </div>
+
+                 <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                	<center><label>Household meals per day</label></center>
+                	 <br>
+                  <input id="s_age" class="input is-success" type="number" required placeholder="3" name="meals">             
+                </p>
+              </div>
+
+                 <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                <div class="container-fluid">
+                	<center><label id="signup-user">Reading book status</label></center>
+                	 <br>
+                  <select class="select" id="sel" name="book">
+					  <option id="sel" value="0">Student read a book with parents</option>
+					  <option id="sel" value="1">Student does not read book with parents</option>
+					  <option id="sel" value="2">High s</option>
+					</select> 
+              </div>
+              </div>
+
+                <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                <div class="container-fluid">
+                	<center><label id="signup-user">Parent checking exercise status</label></center>
+                	 <br>
+                  <select class="select" id="sel" name = "check_book">
+					  <option id="sel" value="0">Does not check the exercise book</option>
+					  <option id="sel" value="1">check exercise book once</option>
+					  <option id = "sel" value="2"> check exercise book twices</option>
+					</select> 
+              </div>
+              </div>
+
+                  <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                <div class="container-fluid">
+                	<center><label id="signup-user">Parent and teacher relation</label></center>
+                	 <br>
+                  <select class="select" id="sel" name = "parent_teacher">
+					  <option id="sel" value="0">parent discuss with teacher on student progress</option>
+					  <option id="sel" value="1">Parent does not discuss with teacher on student progress</option>
+					  <option id="sel" value="2">High</option>
+					</select> 
+              </div>
+              </div>
+              <input type="submit" value="Predict" id="signup-button" class="form-button button is-primary is-inverted is-outlined">
+              </form></center></div>
+              <br><br>
+              <p>1</p>
+              <p>1</p>
+              </section>
+
+   <section class="hero">
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Research</strong> by Scientific Reasearch group
+          <span class="icon is-small">
+            <i class="fa fa-copyright"></i>
+          </span>2019</a>
+        </p>
+        <p>        
+          <a class="icon has-text-primary" href="https://github.com/kalebu" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+          <a class="icon has-text-primary" href="kalebjordan.kj@gmail.com" target="_blank">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

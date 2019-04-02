@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 #=======================Database initialization======================
-SQLALCHEMY_DATABASE_URI = 'sqlite:///student.db'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///fake.db'
 
 Base = declarative_base()
 

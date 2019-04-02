@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from scripts import tabledef
 from scripts import forms
 from scripts import helpers
@@ -13,32 +11,17 @@ model = joblib.load('model.pkl')
 
 app = Flask(__name__)
 
-
-# ======== Routing =========================================================== #
-# -------- Login ------------------------------------------------------------- #
 @app.route('/', methods=['GET', 'POST'])
-def login():
-    if not session.get('logged_in'):
-        form = forms.LoginForm(request.form)
-        if request.method == 'POST':
-            username = request.form['username'].lower()
-            password = request.form['password']
-            if form.validate():
-                if helpers.credentials_valid(username, password):
-                    session['logged_in'] = True
-                    session['username'] = username
-                    return json.dumps({'status': 'Login successful'})
-                return json.dumps({'status': 'Invalid user/pass'})
-            return json.dumps({'status': 'Both fields required'})
-        return render_template('login.html', form=form)
-    user = helpers.get_user()
-    return render_template('home.html', user=user)
+def sweet_home():
+    return render_template('login.html')
 
+@app.route('/home', methods=['GET', 'POST'])
+def login():
+    return render_template('home.html', user="Admin")
 
 @app.route("/logout")
 def logout():
-    session['logged_in'] = False
-    return redirect(url_for('login'))
+    return render_template('login.html')
 
 
 # -------- Signup ---------------------------------------------------------- #
@@ -77,13 +60,12 @@ def prediction():
         age = 2019-year_born
         gender = int(gender);meals=int(meals);book=int(book)
         check_book = int(check_book);parent_teacher=int(parent_teacher)
-
         data = [[meals, age, book, check_book, gender, parent_teacher]] 
         predicted = model.predict(data)
         predicted = predicted[0]
         print(predicted)
         print(gender, age , meals, book, check_book, parent_teacher)
-        return render_template("pred.html", prediction = predicted)
+        return render_template("pred.html", prediction = predicted, )
 
 
 # -------- Settings ---------------------------------------------------------- #
@@ -104,5 +86,4 @@ def settings():
 
 # ======== Main ============================================================== #
 if __name__ == "__main__":
-    app.secret_key = os.urandom(12)  # Generic key for dev purposes only
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True)

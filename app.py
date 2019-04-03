@@ -65,7 +65,29 @@ def prediction():
         predicted = predicted[0]
         print(predicted)
         print(gender, age , meals, book, check_book, parent_teacher)
-        return render_template("pred.html", prediction = predicted, )
+        if gender==0:
+            gender="Male"
+        else:
+            gender="Female"
+        if book==0:
+            book = "Student read book with parents"
+        elif book==1:
+            book = "Student does not read book with parents"
+        else:
+            book = "Student read a lot a book with parents"
+        if check_book==0:
+            check_book="Parents does not check students book"
+        elif check_book==1:
+            check_book="Parents check students book once"
+        else:
+            check_book="Parents check student book twice"
+        if parent_teacher==0:
+            parent_teacher="Parent discuss with teacher on student progress"
+        elif parent_teacher==1:
+            parent_teacher="Parent does not discuss with teacher on student progress"
+        else:
+            parent_teacher="Parent discuss a lot with teacher on child progress"
+        return render_template("pred.html", prediction = predicted,gender=gender,age=age, meals=meals,book=book, check_book=check_book, parent_teacher=parent_teacher)
 
 
 # -------- Settings ---------------------------------------------------------- #

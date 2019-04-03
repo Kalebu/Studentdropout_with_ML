@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+
+<style type="text/css">
+.select{
+  width: 90%;
+  border-radius: 3px;
+  border-color: black;
+  border-color: transparent;
+  height: 35px;
+  border:none;
+}
+
+#sel option {
+  font-size: 15px;
+  text-transform: capitalize;
+  border-color: transparent;
+  border:none;
+  text-decoration-color: #245;
+}
+
+#s_age{
+  width: 90%;
+  border-radius: 3px;
+  border-color: transparent;
+  border: none;
+  outline: none;
+  text-transform: capitalize;
+  position: relative;
+  font-size:15px;
+  height: 30px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+
+
+}
+</style>
+<section class="hero is-primary is-bold is-large">
+ <div id="signup-box">
+      <br><br>
+      <center>
+       <h2>The information about a student currently analysed by the system</h2>
+       <br><br>
+       </center>
+        <table align="center">
+          <tr>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Meals per day</th>
+            <th>Reading book status</th>
+            <th>Parent review status</th>
+            <th>Parent teacher relation</th>
+          </tr>
+          <tr>
+            <td>{{ gender }}</td>
+            <td>{{ age }}</td>
+            <td>{{ meals }}</td>
+            <td>{{ book }}</td>
+            <td>{{ check_book }}</td>
+            <td>{{ parent_teacher }}</td>
+          </tr>
+        </table>
+         <br><br>
+              <p>1</p>
+              <p>1</p>
+   <section class="hero">
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Research</strong> by Scientific Reasearch group
+          <span class="icon is-small">
+            <i class="fa fa-copyright"></i>
+          </span>2019</a>
+        </p>
+        <p>        
+          <a class="icon has-text-primary" href="https://github.com/kalebu" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+          <a class="icon has-text-primary" href="kalebjordan.kj@gmail.com" target="_blank">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}
